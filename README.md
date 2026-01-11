@@ -5,14 +5,20 @@ featuring real-time scoring and a global competitive leaderboard.
 
 🌟 Key Features
 1.Dynamic AI Generation: Context-aware questions generated via Google Gemini API.
+
 2.Difficulty Logic: Custom prompt engineering for Easy, Medium, and Hard levels.
+
 3.Competitive Tracking: Persistence layer for high scores with topic-specific filtering.
+
 4.Responsive UI: Mobile-first design with real-time countdown timers.
 
 🛠️ Technical Stack
 1.Backend: Node.js, Express.js
+
 2.Database: MongoDB (Mongoose ODM)
+
 3.AI Integration: Google Generative AI SDK
+
 4.Frontend:  JavaScript, CSS3 Variables
 
 📥 Installation & Setup
@@ -21,12 +27,16 @@ Clone & Install:
 Bash
 
 git clone https://github.com/your-username/smartai-quiz.git
+
 cd backend && npm install
+
 Environment Setup: Create a .env file in the backend folder:
 
 Code snippet
 GEMINI_API_KEY=your_key_here
+
 MONGO_URI=mongodb://127.0.0.1:27017/aiquizz
+
 Launch:
 Bash
 node server.js
