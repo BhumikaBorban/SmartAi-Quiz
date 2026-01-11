@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CrackExam - Leaderboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .leaderboard-container { max-width: 800px; margin: 50px auto; background: rgba(0, 10, 20, 0.9); padding: 30px; border-radius: 15px; border: 1px solid #00bfff; color: white; }
+    .filter-section { margin-bottom: 25px; text-align: center; }
+    select { padding: 10px; border-radius: 5px; background: #01021b; color: white; border: 1px solid #00bfff; font-size: 1rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 15px; border-bottom: 1px solid #333; text-align: left; }
+    th { color: #00bfff; text-transform: uppercase; }
+    .back-btn { display: inline-block; margin-top: 30px; padding: 10px 25px; background: #00bfff; color: black; text-decoration: none; border-radius: 8px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="leaderboard-container">
+    <h1 style="text-align: center;">🏆 Leaderboard</h1>
+
+    <div class="filter-section">
+      <label for="topicFilter">View Category: </label>
+      <select id="topicFilter" onchange="loadLeaderboard()">
+        <option value="All">All Topics</option>
+        <option value="QUANTITATIVE APTITUDE">Quantitative Aptitude</option>
+        <option value="LOGICAL REASONING">Logical Reasoning</option>
+        <option value="PYTHON">Python</option>
+        <option value="JAVA">Java</option>
+        <option value="DBMS">DBMS</option>
+        <option value="NETWORKING">Networking</option>
+      </select>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Topic</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-body"></tbody>
+    </table>
+    <center><a href="index.html" class="back-btn">← Home</a></center>
+  </div>
+
+  <script>
+    async function loadLeaderboard() {
+      const tbody = document.getElementById("leaderboard-body");
+      const topic = document.getElementById("topicFilter").value;
+      tbody.innerHTML = "<tr><td colspan='4'>Loading scores...</td></tr>";
+      
+      try {
+        const response = await fetch(`http://localhost:3000/leaderboard?topic=${encodeURIComponent(topic)}`);
+        const data = await response.json();
+        
+        if (data.length === 0) {
+          tbody.innerHTML = "<tr><td colspan='4'>No records found for this category.</td></tr>";
+          return;
+        }
+
+        tbody.innerHTML = data.map((entry, index) => `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${entry.username}</td>
+            <td>${entry.topic}</td>
+            <td>${entry.score} / ${entry.totalQuestions}</td>
+          </tr>
+        `).join("");
+      } catch (err) {
+        tbody.innerHTML = "<tr><td colspan='4' style='color:red;'>Failed to load data.</td></tr>";
+      }
+    }
+    window.onload = loadLeaderboard;
+  </script>
+</body>
+</html>

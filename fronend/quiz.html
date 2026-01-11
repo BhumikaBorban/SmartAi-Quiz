@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrackExam - Quiz Sections</title>
+  <link rel="stylesheet" href="quiz.css"> </head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="img/logo.png.jpg" alt="CrackExam Logo"> <span>CrackExam</span> </div>
+    <ul>
+      <li><a href="index.html">Home</a></li> <li><a href="#sections">Sections</a></li> <li><a href="leaderboard.html">Leaderboard</a></li> 
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Choose a Quiz Section</h1> <p>Select a topic to start testing your skills!</p> <div class="difficulty-selection">
+        <label for="difficulty">Select Difficulty:</label>
+        <select id="difficulty">
+          <option value="Easy">Easy</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search topic..."> <button onclick="searchTopic()">Search</button> </div>
+    </div>
+  </header>
+
+  <section id="sections" class="sections fade-in">
+    <div class="section-card">
+      <h2>Aptitude</h2> <ul>
+        <li><a href="#" onclick="startQuiz('quantitative-aptitude')">Quantitative Aptitude</a></li> <li><a href="#" onclick="startQuiz('logical-reasoning')">Reasoning</a></li> <li><a href="#" onclick="startQuiz('data-interpretation')">Data Interpretation</a></li> <li><a href="#" onclick="startQuiz('number-series')">Number Series</a></li> <li><a href="#" onclick="startQuiz('time-work')">Time & Work</a></li> </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Coding</h2> <ul>
+        <li><a href="#" onclick="startQuiz('Python')">Python</a></li> <li><a href="#" onclick="startQuiz('C++')">C / C++</a></li> <li><a href="#" onclick="startQuiz('Java')">Java</a></li> <li><a href="#" onclick="startQuiz('DS and Algorithms')">DS & Algorithms</a></li> <li><a href="#" onclick="startQuiz('JavaScript')">JavaScript</a></li> </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Fundamentals</h2> <ul>
+        <li><a href="#" onclick="startQuiz('Computer Basics')">Computer Basics</a></li> <li><a href="#" onclick="startQuiz('Networking')">Networking</a></li> <li><a href="#" onclick="startQuiz('DBMS')">DBMS</a></li> <li><a href="#" onclick="startQuiz('OS Concepts')">OS Concepts</a></li> <li><a href="#" onclick="startQuiz('OOP Concepts')">OOP Concepts</a></li> </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>General Awareness</h2> <ul>
+        <li><a href="#" onclick="startQuiz('Current Affairs')">Current Affairs</a></li> <li><a href="#" onclick="startQuiz('History')">History</a></li> <li><a href="#" onclick="startQuiz('Geography')">Geography</a></li> <li><a href="#" onclick="startQuiz('Politics')">Politics</a></li> <li><a href="#" onclick="startQuiz('Economics')">Economics</a></li> </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Technical MCQs</h2> <ul>
+        <li><a href="#" onclick="startQuiz('Electrical Engineering')">Electrical Engineering</a></li> <li><a href="#" onclick="startQuiz('Electronics')">Electronics</a></li> <li><a href="#" onclick="startQuiz('Mechanical')">Mechanical</a></li> <li><a href="#" onclick="startQuiz('Civil Engineering')">Civil Engineering</a></li> </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Interview Prep</h2> <ul>
+        <li><a href="#" onclick="startQuiz('HR Interview Questions')">HR Interview Questions</a></li> <li><a href="#" onclick="startQuiz('Behavioral Questions')">Behavioral Questions</a></li> <li><a href="#" onclick="startQuiz('Communication Skills')">Communication Skills</a></li> <li><a href="#" onclick="startQuiz('English Vocabulary')">English Vocabulary</a></li> </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 CrackExam. All rights reserved.</p> </footer>
+
+  <script src="quiz.js"></script> <script>
+    // Function to start quiz with difficulty level
+    function startQuiz(topic) {
+      const difficulty = document.getElementById("difficulty").value;
+      window.location.href = `qqq.html?quiz=${topic}&difficulty=${difficulty}`;
+    }
+  </script>
+
+</body>
+</html>

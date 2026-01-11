@@ -1,0 +1,169 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #020015;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+/* Close button fixed at top-right */
+.close-quiz {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  color: #fff;
+  background: #e74c3c; /* red button */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: background 0.2s;
+}
+
+.close-quiz:hover {
+  background: #c0392b;
+}
+
+/* Quiz container */
+.quiz-container {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(73, 127, 236, 0.2);
+  width: 450px; /* Slightly wider for better text flow */
+  text-align: center;
+}
+
+/* Heading */
+.quiz-container h1 {
+  margin-bottom: 5px;
+  color: #0077cc;
+}
+
+/* Difficulty Badge */
+#difficulty-display {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+/* Quiz card */
+.quiz-card {
+  margin: 15px 0;
+}
+
+.quiz-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Options */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-btn {
+  padding: 12px;
+  border: 2px solid #f0f0f0;
+  background: #f9f9f9;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  text-align: left;
+}
+
+.option-btn:hover {
+  background: #eef4ff;
+  border-color: #0077cc;
+}
+
+.option-btn.selected {
+  background: #2196F3;
+  color: white;
+  border-color: #005fa3;
+}
+
+/* Timer */
+.timer {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+#timer.warning {
+  color: #e74c3c; /* Red color when time is low */
+  animation: shake 0.5s infinite;
+}
+
+/* Next button */
+#next-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+#next-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#next-btn:hover:not(:disabled) {
+  background: #3e8e41;
+}
+
+/* Result Box */
+#result-box {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#result-box h2 {
+  color: #333;
+}
+
+#result-box button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  background: #2196F3;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#result-box button:hover {
+  background: #1976D2;
+}
+
+/* Simple animation for low timer */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
