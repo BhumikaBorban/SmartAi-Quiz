@@ -1,0 +1,6 @@
+# Secrets
+.env
+
+# Dependencies
+node_modules/
+__pycache__/
